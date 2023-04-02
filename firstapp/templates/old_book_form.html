@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library from </title>
+    <!-- internal style -->
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> -->
+    
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+</head>
+<style>
+    .required:before{
+        content: "*";
+        color: red;
+    }
+</style>
+<body>
+    <h2>Library Application</h2><hr>
+    <form action="{% url 'book_form' %}" method="post">
+        {% csrf_token %}
+        {{form.as_p}}
+            
+        <button type="submit" class="btn btn-primary">submit</button><br><br>
+        <!-- {{person_name}} -->
+        <!-- {% for book in all_books %}
+            {{book.id}} -- {{book.name}} -- {{book.price}}<br>
+        {% endfor %} -->
+        <a href="{% url 'all_active_books'%}" class="btn btn-warning">Show Active Books</a>
+        <a href="{% url 'all_inactive_books'%}" class="btn btn-danger">Show Inactive Books</a>
+
+
+        
+    </form>
+   
+
+</body>
+</html>
+
+<!-- DTL-- Django Template language look like python mixture of html and python-->
+
+
+
